@@ -1,0 +1,35 @@
+# Simple ATM System
+
+# Initial account balance
+balance = 5000.00
+
+# Main program loop
+while True:
+    print("\n1. Check Your Balance")
+    print("2. Withdraw Amount")
+    print("3. Deposit Amount")
+    print("4. Exit")
+
+    choice = input("Enter your choice (1-4): ")
+
+    if choice == "1":
+        print("Your balance is: ${:.2f}".format(balance))
+    elif choice == "2":
+        amount = float(input("Enter the amount to withdraw: $"))
+        if amount > balance:
+            print("Not enough balance. Cannot withdraw.")
+        else:
+            balance -= amount
+            print("${:.2f} withdrawn. Remaining balance: ${:.2f}".format(amount, balance))
+    elif choice == "3":
+        amount = float(input("Enter the amount to deposit: $"))
+        if amount < 0:
+            print("Invalid deposit amount.")
+        else:
+            balance += amount
+            print("${:.2f} deposited. New balance: ${:.2f}".format(amount, balance))
+    elif choice == "4":
+        print("Thanks for using the ATM. Have a great day!")
+        break
+    else:
+        print("Invalid choice. Please enter 1, 2, 3, or 4.")
